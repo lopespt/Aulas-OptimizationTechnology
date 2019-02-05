@@ -1,0 +1,524 @@
+<!doctype html>
+<!-- 19:20 - 21:00
+  21:15 - 22:50 
+-->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>Optimization Technology</title>
+
+    <meta name="description" content="Aula de Desenvolvimento WEB - CC1620">
+    <meta name="author" content="Guilherme A. W. Lopes">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="../../css/reveal.css">
+    <link rel="stylesheet" href="../../gwl_styles.css">
+    <link rel="stylesheet" href="../../css/theme/black.css">
+
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="../../lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="../../lib/js/html5shiv.js"></script>
+    <![endif]-->
+    <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
+
+    <style>
+        body {
+            /*background-color: #201825;*/
+        }
+
+        .reveal .intro a {
+            color: #ecff1a;
+        }
+
+        pre {
+            color: #E9DC51;
+        }
+    /*
+        ul li:nth-child(1) {
+            color: dodgerblue;
+        }
+
+        ul li:nth-child(2) {
+            color: yellowgreen;
+        }
+
+        ul li:nth-child(3) {
+            color: orangered;
+        }
+
+        ul li:nth-child(4) {
+            color: goldenrod;
+        }
+
+        ul li > ul li {
+            color: white;
+        }
+*/
+        .reveal .clickTest, .reveal .clickTest:hover {
+            cursor: pointer;
+            background-color: ButtonFace;
+            border: 2px solid ButtonShadow;
+            color: ButtonText;
+            border-radius: 4px;
+            padding: 0 10px;
+            /*box-shadow: ButtonShadow 2px -2px;*/
+            font-size: 20px;
+            transition: all 500ms;
+        }
+
+        .reveal .clickTest:hover {
+            background-color: ButtonHighlight;
+            transition: all 500ms;
+        }
+
+        .reveal .alert {
+            background-color: gold;
+            width: 40%;
+            display: inline-block;
+            position: absolute;
+            left: 50%;
+            margin-left: -20%;
+            top: 50%;
+            color: black;
+            box-shadow: darkgoldenrod 3px 3px 1px;
+            border-radius: 3px;
+        }
+
+        .reveal .ref_estudo > li a {
+            color: greenyellow;
+        }
+
+        .reveal .ref_estudo > li a:hover {
+            color: darkgreen;
+        }
+
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+
+        <section data-background-video="assets/fundo.webm" class="intro" data-background-video-loop
+                 data-background-color="#201825">
+            <h2>Optimization Technology </h2>
+            <small>Prof. Dr. Guilherme Wachs Lopes </small>
+            <br>
+            <small><a href="mailto:guilhermewachs@gmail.com?subject=Duvida de Aluno FIAP">guilhermewachs@gmail.com</a></small>
+        </section>
+
+
+        <section>
+            <h2>Linguagens de Programação</h2>
+        </section>
+
+        <section>
+            <h2>Linguagens de Programação</h2>
+            <ul>
+                <li>As linguagens de programação são linguagens formais para comunicar instruções aos computadores</li>
+                <li>Algumas linguagens de programação:</li>
+                <div style="display:block">
+                    <ul style="float: left">
+                        <li>C</li>
+                        <li>C++</li>
+                        <li>Java</li>
+                        <li>C#</li>
+                        <li>F#</li>
+                        <li>J#</li>
+                        <li>Objective-C</li>
+                        <li>Assembly</li>
+                        <li>Python</li>
+                    </ul>
+                    <ul style="float:left">
+                        <li>Java Script</li>
+                        <li>Ruby</li>
+                        <li>Perl</li>
+                        <li>PHP</li>
+                        <li>Matlab</li>
+                        <li>R</li>
+                        <li>Bash</li>
+                        <li>SmallTalk</li>
+                        <li>LUA</li>
+                    </ul>
+                    <ul style="float:left">
+                        <li>Pascal</li>
+                        <li>Hack</li>
+                        <li>Go</li>
+                        <li>Cobol</li>
+                        <li>Basic</li>
+                        <li>Swift</li>
+                        <li>Cofee Script</li>
+                        <li>ASP</li>
+                    </ul>
+                </div>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Linguagens de Programação</h2>
+            <ul>
+                <li class="green">As linguagens de programação se dividem em 2 grupos:</li>
+                <ul>
+                    <li class="red">Baixo Nível: aquelas que oferecem pouca ou nenhuma abstração ao conjunto de
+                        instruções da
+                        arquitetura.
+                        <ul>
+                            <li class="red">São Rápidas</li>
+                            <li class="red">Não há necessidade de compilar, pois já está no formato
+                                que o processador "entende"
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="blue">Alto Nível: Apresentam alta abstração do conjunto de instruções do computador.
+                        Neste tipo de
+                        linguagem não é necessário que se conheça a arquitetura do computador (32 / 64 bits; CISC, RISC,
+                        etc).
+                        <ul>
+                            <li class="blue">Um pouco mais lentas que a de baixo nível</li>
+                            <li class="blue">Precisa de um compilador (que traduz o programa para uma linguagem de baixo
+                                nível)
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </ul>
+        </section>
+
+        <section>
+            <h2>Linguagens de Programação</h2>
+            <ul>
+                <li>Exemplo de linguagem alto nível (C++)</li>
+            </ul>
+            <img src="assets/cpp.png">
+        </section>
+
+        <section>
+            <h2>Linguagens de Programação</h2>
+            <ul>
+                <li>O mesmo programa em baixo-nível (Assembly)</li>
+            </ul>
+            <img src="assets/assembly.png">
+        </section>
+
+        <section>
+            <h2>Linguagens de Programação</h2>
+            <ul>
+                <li class="green">As linguagens de programação também se dividem com relação à execução do código fonte:
+                    <ul>
+                        <li class="blue">Compilada: aquelas que executam o código diretamente no Sistema Operacional ou
+                            Processador.
+                            <ul>
+                                <li class="blue">São Rápidas</li>
+                                <li class="blue">Ex.: C, C++, Fortran, Pascal, Obj-C</li>
+                            </ul>
+                        </li>
+                        <li class="red">Interpretada: necessitam de outro programa (interpretador) capaz de traduzir e
+                            executar o
+                            código fonte e executar os comandos no S.O ou Processador.
+                            <ul>
+                                <li class="red">Mais lentas</li>
+                                <li class="red">Ex.: Java, JavaScript, Python, C#, ASP</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Linguagens de Programação</h2>
+            <ul>
+                <li>Na WEB todos esses tipos de linguagens podem ser utilizadas!!</li>
+                <li>Mas algumas possuem maior compatibilidade para a WEB:
+                    <ul>
+                        <li>JavaScript</li>
+                        <li>Java</li>
+                        <li>C#</li>
+                        <li>PHP</li>
+                        <li>Python</li>
+                        <li>Ruby</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Um Pouco de Arquitetura de Software</h2>
+            <ul>
+                <li>É muito comum separarmos uma aplicação WEB em 2 camadas:
+                    <ul>
+                        <li>Front-End: é a camada responsável por interagir com o usuário final de um sistema.</li>
+                        <li>Back-End: é a camada responsável por processar as informações recebidas do usuário</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Um Pouco de Arquitetura de Software</h2>
+            <img src="assets/arq1.png" style="background-color: white">
+        </section>
+        <section>
+            <h2>Um Pouco de Arquitetura de Software</h2>
+            <img src="assets/arq2.png" style="background-color: white">
+        </section>
+        <section>
+            <h2>Um Pouco de Arquitetura de Software</h2>
+            <img src="assets/arq3.png" style="background-color: white">
+        </section>
+        <section>
+            <h2>Um Pouco de Arquitetura de Software</h2>
+            <img src="assets/arq4.png" style="background-color: white">
+        </section>
+
+        <section>
+            <h2>Java Script</h2>
+            <ul>
+                <li>Criada por Brendan Eich em 1995</li>
+                <li>Foi pela primeira vez dentro do navegador Nestcape 2.0</li>
+                <li>É uma linguagem de alto nível e interpretada</li>
+                <li>Comumente utilizada no Front-End</li>
+                <li>Permite interação com o usuário e a página</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Java Script</h2>
+            <ul>
+                <li>Possui uma sintaxe parecida com o C e C++. Veja um exemplo:
+                    <!-- @formatter:off -->
+<pre><code>function teste(){
+    var x = 5;
+    if( x < 10){
+        alert(“Olá!”);
+    }
+}</code></pre>
+            <!-- @formatter:on -->
+                    <script type="text/javascript">
+                        function c1() {
+                            alert("Olá!");
+                        }
+                    </script>
+                    <a class="clickTest" onclick="c1()">Testar</a>
+                </li>
+                <li>Mas se ela é interpretada, qual é o interpretador?</li>
+                <li><b>O Browser!</b></li>
+            </ul>
+            <div class="alert fragment">
+                Exemplos em Aula
+            </div>
+        </section>
+
+        <section>
+            <h2>JavaScript</h2>
+            <ul>
+                <li>Como escrever Scripts na sua página?</li>
+                <li><!-- @formatter:off-->
+<pre><code>&lt;script type="text/javascript"&gt;
+    //Escreva seu script aqui!
+&lt;/script&gt;</code></pre>
+                    <!-- @formatter:on-->
+                </li>
+                <li>Você pode colocar isso dentro da tag BODY ou HEAD</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>JavaScript</h2>
+            <ul>
+                <li>Para declarar uma variável em JavaScript, utiliza-se a palavra <span class="red">var</span>
+                    <!-- @formatter:off-->
+<pre><code>&lt;script type="text/javascript"&gt;
+    var x;
+&lt;/script&gt;</code></pre>
+                    <!-- @formatter:on-->
+                </li>
+                <li>O JavaScript possui 2 tipos nativos de dados:
+                    <ul>
+                        <li>Número: pode ser real ou inteiro
+                            <!-- @formatter:off-->
+<pre><code>&lt;script type="text/javascript"&gt;
+    var x = 1.25;
+&lt;/script&gt;</code></pre>
+                    <!-- @formatter:on-->
+                        </li>
+                        <li>String: é uma cadeia de caracteres
+                            <small>(Deve estar entre "")</small>
+                            <!-- @formatter:off-->
+<pre><code>&lt;script type="text/javascript"&gt;
+    var x = "Meu Texto";
+&lt;/script&gt;</code></pre>
+                    <!-- @formatter:on-->
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>JavaScript</h2>
+            <h3>Primeiros Passos</h3>
+            <ul>
+                <li>O JavaScript pode interagir com o HTML!</li>
+                <li>Alterar o HTML de um elemento HTML:
+                    <!-- @formatter:off-->
+<pre><code>&lt;script type="text/javascript"&gt;
+    document.getElementById("&lt;idDoElemento&gt;").innerHTML="bla...";
+&lt;/script&gt;</code></pre>
+                    <!-- @formatter:on-->
+                </li>
+                <li>Exemplo em aula</li>
+            </ul>
+        </section>
+
+        <section>
+          <h2>
+             Equilibrando os conhecimentos:
+          </h2>
+          <ul>
+            <li>Variáveis: <a href="https://javascript.info/types">Tipos</a>, Declaração, Armardilhas</li>
+            <li>Controles de fluxo</li>
+            <li>Laços de repetição</li>
+            <li>Funções</li>
+            <li>Arrays</li>
+            <li>DOM (Document Object Model)</li>
+            <li>Eventos</li>
+            <li>Passagem por valor e referência</li>
+            <li>Objetos: criação, propriedades, métodos</li>
+            <li>Herança em Javascript (prototype)</li>
+            <li>Promisses</li>
+            <li>Workers</li>
+            <li>ES6</li>
+          </ul>
+        </section>
+
+        <section>
+            <h2>JavaScript</h2>
+            <h3>Formas de dar Saída ao JavaScript ("cout")</h3>
+            <ul>
+                <li>Há algumas formas de mostrar o resultado de um programa em JavaScript:
+                    <ul>
+                        <li>
+                            <pre><code>windows.alert("alguma coisa");</code></pre>
+                        </li>
+                        <li>
+                            <pre><code>document.write("alguma coisa")</code></pre>
+                        </li>
+                        <li>
+                            <pre><code>objeto.innerHTML= "alguma coisa"</code></pre>
+                        </li>
+                        <li>
+                            <pre><code>console.log("alguma coisa")</code></pre>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>JavaScript</h2>
+            <h3>Onde Começar?</h3>
+            <ol class="ref_estudo">
+                <li><a href="http://www.w3schools.com/js/js_syntax.asp">Sintaxe do JavaScript</a></li>
+                <li><a href="http://www.w3schools.com/js/js_statements.asp">Instruções em JavaScript</a></li>
+                <li><a href="http://www.w3schools.com/js/js_variables.asp">Variáveis</a></li>
+                <li><a href="http://www.w3schools.com/js/js_operators.asp">Operadores (+,-,/,%,*, etc...)</a></li>
+                <li><a href="http://www.w3schools.com/js/js_datatypes.asp">Tipos de Dados</a></li>
+                <li><a href="http://www.w3schools.com/js/js_functions.asp">Funções</a></li>
+                <li><a href="http://www.w3schools.com/js/js_objects.asp">Objetos</a></li>
+                <li><a href="http://www.w3schools.com/js/js_events.asp">Eventos</a></li>
+                <li><a href="http://www.w3schools.com/js/js_numbers.asp">Números</a></li>
+                <li><a href="http://www.w3schools.com/js/js_strings.asp">Strings</a></li>
+                <li><a href="http://www.w3schools.com/js/js_arrays.asp">Vetores</a></li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>Site Interessante para Treinar:</h2>
+            <a href="http://jsfiddle.net">JsFiddle</a>
+        </section>
+
+    </div>
+</div>
+
+<script src="../../lib/js/head.min.js"></script>
+<script type="text/javascript">
+    $("li, img, iframe").addClass("fragment");
+    $(".reveal .ref_estudo > li a").attr("target", "_blank");
+    $("img").addClass("plain");
+</script>
+<script src="../../js/reveal.js"></script>
+
+
+<script>
+
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: false,
+        height: 1024,
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+        math: {
+            mathjax: 'https://cdn.mathjax.org/mathjax/latest/MathJax.js',
+            config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
+        },
+
+        // Optional reveal.js plugins
+        dependencies: [
+            {
+                src: '../../lib/js/classList.js', condition: function () {
+                return !document.body.classList;
+            }
+            },
+            {
+                src: '../../plugin/markdown/marked.js', condition: function () {
+                return !!document.querySelector('[data-markdown]');
+            }
+            },
+            {
+                src: '../../plugin/markdown/markdown.js', condition: function () {
+                return !!document.querySelector('[data-markdown]');
+            }
+            },
+            {
+                src: '../../plugin/highlight/highlight.js', async: true, callback: function () {
+                hljs.initHighlightingOnLoad();
+            }
+            },
+            {src: '../../plugin/zoom-js/zoom.js', async: true},
+            {src: '../../plugin/notes/notes.js', async: true},
+            {src: '../../plugin/math/math.js', async: true}
+        ]
+    });
+
+</script>
+
+</body>
+</html>
