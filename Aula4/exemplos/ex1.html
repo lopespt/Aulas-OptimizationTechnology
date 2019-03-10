@@ -5,50 +5,11 @@
     <meta name="viewport" content="width=device-width" />
     <title>Ex1</title>
   </head>
-  <body onload="carregado();">
+  <body >
     <svg id="tela"  width="100%" height="800" xmlns="http://www.w3.org/2000/svg" >
-    <circle cx="200" cy="80" r="60" stroke="black"
-stroke-width="2"  fill="green"/>
     </svg>
 
-      <script type="text/javascript" charset="utf-8">
-        svg = "http://www.w3.org/2000/svg" 
-        var tela = document.getElementById("tela");
-        var c = document.createElementNS(svg,"circle");
-        c.setAttribute("cx", "300");
-        c.setAttribute("cy", "30");
-        c.setAttribute("r", "30");
-        c.setAttribute("fill", "black");
-        tela.appendChild(c);
-
-        var mx;
-        var my;
-        var ativo=null;
-        tela.addEventListener("mousemove", function(evt){mx=evt.x, my=evt.y});
-
-
-        
-
-      tela.addEventListener("mousemove",function(evt){if(ativo!=null){
-        ativo.setAttribute("cx", mx);
-        ativo.setAttribute("cy", my);
-      }});
-       function movivel(obj){
-         a:wq
-        console.log("chamado");
-        obj.addEventListener("mousedown",function(evt){ativo=this});
-        obj.addEventListener("mouseup",function(evt){ativo=null});
-        }
-    
-      function carregado(){
-        objs = tela.querySelectorAll("*");
-        for(var i=0; i>objs.length; i++){
-          movivel(objs[i]);
-        }
-      };
-
-        </script>
-      </script>
+      <script type="text/javascript" charset="utf-8" src="script1.js"></script>
   </body>
 </html>
 
