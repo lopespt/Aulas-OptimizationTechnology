@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Agenda</title>
+    </head>
+    <body>
+        <div>
+            <fieldset>
+                <legend>Dados</legend>
+                <div>Nome:</div> <input id="cmpNome" type="text" value="" name=""/><br/>
+                <div>Telefone:</div> <input id="cmdTel" type="text" value="" name=""/><br/>
+                <div>Idade:</div> <input id="cmdIdade" type="text" value="" name=""/><br/>
+            </fieldset>
+            <fieldset id="comandos" class="">
+                <legend>Comandos</legend>
+                <input id="btAnt" type="button" value="<-">
+                <input id="btProx" type="button" value="->">
+                <input id="btAdicionar" type="button" value="Adicionar">
+                <input id="brRemover" type="button" value="Remover">
+            </fieldset>
+            <fieldset id="dados_da_agenda" class="">
+                <legend>Dados da Agenda</legend>
+                <div>
+                    Atual: <span id="atual"></span>
+                </div>
+                <div>
+                    Total: <span id="total"></span>
+                </div>
+            </fieldset>
+        </div>
+        <script src="agenda.js" charset="utf-8"></script>
+    </body>
+</html>

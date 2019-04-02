@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Optimization Technology</title>
+
+    <meta name="description" content="Aula de Desenvolvimento WEB - CC1620">
+    <meta name="author" content="Guilherme A. W. Lopes">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="../../css/reveal.css">
+    <link rel="stylesheet" href="../../gwl_styles.css">
+    <link rel="stylesheet" href="../../css/theme/black.css">
+
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="../../lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement('link');
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match(/print-pdf/gi) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+
+    <!--[if lt IE 9]>
+      <script src="../../lib/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <style>
+body {
+  /*background-color: #201825;*/
+}
+
+        .reveal .intro a {
+          color: #ecff1a;
+        }
+
+        pre {
+          color: #E9DC51;
+        }
+        /*
+           ul li:nth-child(1) {
+             color: dodgerblue;
+           }
+
+           ul li:nth-child(2) {
+             color: yellowgreen;
+           }
+
+           ul li:nth-child(3) {
+             color: orangered;
+           }
+
+           ul li:nth-child(4) {
+             color: goldenrod;
+           }
+
+           ul li > ul li {
+             color: white;
+           }
+         */
+        .reveal .clickTest, .reveal .clickTest:hover {
+          cursor: pointer;
+          background-color: ButtonFace;
+          border: 2px solid ButtonShadow;
+          color: ButtonText;
+          border-radius: 4px;
+          padding: 0 10px;
+          /*box-shadow: ButtonShadow 2px -2px;*/
+          font-size: 20px;
+          transition: all 500ms;
+        }
+
+        .reveal .clickTest:hover {
+          background-color: ButtonHighlight;
+          transition: all 500ms;
+        }
+
+        .reveal .alert {
+          background-color: gold;
+          width: 40%;
+          display: inline-block;
+          position: absolute;
+          left: 50%;
+          margin-left: -20%;
+          top: 50%;
+          color: black;
+          box-shadow: darkgoldenrod 3px 3px 1px;
+          border-radius: 3px;
+        }
+
+        .reveal .ref_estudo > li a {
+          color: greenyellow;
+        }
+
+        .reveal .ref_estudo > li a:hover {
+          color: darkgreen;
+        }
+
+
+    </style>
+
+  </head>
+
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+        <section data-background-video="assets/fundo.webm" class="intro" data-background-video-loop
+                                                           data-background-color="#201825">
+          <h2>Optimization Technology </h2>
+          <small>Prof. Dr. Guilherme Wachs Lopes </small>
+          <br>
+          <small><a href="mailto:guilhermewachs@gmail.com?subject=Duvida de Aluno FIAP">guilhermewachs@gmail.com</a></small>
+        </section>
+
+
+        <section>
+          <h2>JavaScript Avançado</h2>
+          <ul>
+            <li>Objetos</li>
+            <li>O tipo Object</li>
+            <li>Herança</li>
+            <li>Eventos</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>JavaScript</h2>
+          <h3>Onde Começar?</h3>
+          <ol class="ref_estudo">
+            <li><a href="http://www.w3schools.com/js/js_syntax.asp">Sintaxe do JavaScript</a></li>
+            <li><a href="http://www.w3schools.com/js/js_statements.asp">Instruções em JavaScript</a></li>
+            <li><a href="http://www.w3schools.com/js/js_variables.asp">Variáveis</a></li>
+            <li><a href="http://www.w3schools.com/js/js_operators.asp">Operadores (+,-,/,%,*, etc...)</a></li>
+            <li><a href="http://www.w3schools.com/js/js_datatypes.asp">Tipos de Dados</a></li>
+            <li><a href="http://www.w3schools.com/js/js_functions.asp">Funções</a></li>
+            <li><a href="http://www.w3schools.com/js/js_objects.asp">Objetos</a></li>
+            <li><a href="http://www.w3schools.com/js/js_events.asp">Eventos</a></li>
+            <li><a href="http://www.w3schools.com/js/js_numbers.asp">Números</a></li>
+            <li><a href="http://www.w3schools.com/js/js_strings.asp">Strings</a></li>
+            <li><a href="http://www.w3schools.com/js/js_arrays.asp">Vetores</a></li>
+          </ol>
+        </section>
+
+        <section>
+          <h2>Objetos</h2>
+          <ul>
+            <li class="fragment">Objetos são utilizados para representar entidades de um problema</li>
+            <li class="fragment">O conceito foi criado a partir do paradigma de programação conhecido por Orientação a Objetos</li>
+            <li class="fragment">Um objeto tem <b>comportamentos</b> e <b>propriedades</b></li>
+            <li class="fragment">Os comportamentos são definidos através de métodos (funções internas)</li>
+            <li class="fragment">Os estados são representados por atributos</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Objetos</h2>
+          <ul>
+            <li class="fragment">Existem 3 formas de criação de objetos:
+              <ul>
+                <li class="fragment">Forma literal</li>
+                <li class="fragment">Função construtora</li>
+                <li class="fragment">A partir de <i>Object</i></li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Objetos</h2>
+          <ul>
+            <li class="fragment">Forma literal
+              <pre class="fragment javascript"><code data-trim data-noescape>
+            var meuObjeto = {
+              placa: "XYZ-1234",
+              marca: "Ferrari",
+              ligar: function(){
+                console.log("Ligando carro de placa: " + this.placa);
+              }
+            };
+              </code></pre> 
+            </li>
+            <li class="fragment">
+              Para utilizar o objeto:
+              <pre class="javascript"><code data-trim data-noescape>
+                 meuObjeto.ligar();
+              </code></pre>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Objetos</h2>
+          <ul>
+            <li class="fragment">Função construtora
+              <pre class="fragment javascript"><code data-trim data-noescape>
+            function Carro(placa,marca){
+              this.placa = placa;
+              this.marca = marca;
+              this.ligar = function(){
+                console.log("Ligando carro de placa: " + this.placa);
+              }
+            }
+              </code></pre> 
+            </li>
+            <li class="fragment">
+              Para utilizar o objeto precisamos primeiro criar:
+              <pre class="javascript"><code data-trim data-noescape>
+                 var carro = new Carro("XYZ-1234", "Ferrari");
+                 carro.ligar();
+              </code></pre>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Objetos</h2>
+          <ul>
+            <li class="fragment">Através da classe <b>Object</b>
+              <pre class="fragment javascript"><code data-trim data-noescape>
+              var carro = new Object();
+              carro.placa = "xyz-1234";
+              carro.marca = "Ferrari";
+              carro.ligar = function(){
+                console.log("Ligando carro de placa: " + carro.placa);
+              }
+              </code></pre> 
+            </li>
+            <li class="fragment">
+              Para utilizar o objeto:
+              <pre class="javascript"><code data-trim data-noescape>
+              carro.ligar();
+              </code></pre>
+            </li>
+          </ul>
+        </section>
+
+
+        <section>
+          <h2>Exemplo de Uso de Objetos</h2>
+
+          <pre class="javascript"><code data-trim data-noescape>
+          function Pessoa(nome, telefone, idade){
+             this.nome = nome;
+             this.telefone = telefone;
+             this.idade = idade;
+             this.isMenor = function(){
+                return this.idade &lt; 18;
+               }
+          }
+
+          var agenda = {
+            lista: [],
+            adiciona: function(p){
+              this.lista.push(p);
+            },
+            removePorNome: function(nome){
+              for(var i in this.lista){
+                if(this.lista[i].nome == nome){
+                  this.lista.splice(i,1);
+                }
+              }
+            },
+            imprime: function(){
+              console.table(this.lista);
+            }
+          }
+          </code></pre>
+
+          <ul>
+            <li class="fragment">
+              Nesse exemplo, <span class="green">Pessoa</span> é uma função construtora e  <span class="green">agenda</span> é um objeto criado de forma literal
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>O tipo Object</h2>
+          <ul>
+            <li>É a base de qualquer objeto JavaScript</li>
+            <li>Define métodos e propriedades padrão</li>
+            <li>Contém funções estáticas para auxiliar a manipulação de qualquer outro objeto </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>O tipo Object</h2>
+          <p>Alguns métodos importantes</p>
+          <ul>
+            <li class="fragment">Object.call(this_obj, parametros, ...) : o mesmo que chamar a função Object tendo this_obj mapeado para this. <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Function/call" target="_blank">mais informações</a></li>
+            <li class="fragment">function.bind(thisArg[, arg1[, arg2[, ...]]]):
+              O método bind() cria uma nova função que, quando chamada, tem sua palavra-chave this definida com o valor fornecido, com uma sequência determinada de argumentos precedendo quaisquer outros que sejam fornecidos quando a nova função é chamada.<a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Function/bind" target="_blank">mais informações</a></li>
+            <li class="fragment">fun.apply(thisArg, [argsArray]): O método apply() chama uma função com um dado valor this e arguments providos como uma array (ou um objeto parecido com um array).<a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Function/apply" target="_blank">mais informções</a></li>
+          </ul>
+
+        </section>
+        <section>
+          <h2>O tipo Object</h2>
+          <p>Alguns métodos importantes</p>
+          <ul>
+            <li class="fragment">
+              Object.assign(base, o1,o2,...): concatena os métodos e atributos de o1,o2,..., em base e retorna. <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Object/assign" target="_blank">mais informações</a>
+            </li>
+            <li class="fragment">Object.create(proto, properties): cria um objeto tendo como base de protótipo proto e propriedades properties <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Object/create" target="_blank">mais informações</a></li>
+            <li class="fragment">Object.defineProperty(obj, prop, descriptor): adiciona uma propriedade a obj de nome prop utilizando o descritor descriptor <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty" target="_blank">mais informações</a> </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Herança em Javascript</h2>
+          <p>Para entender herança, precisamos entender primeiro como os objetos funcionam em JavaScript</p>
+          <ul>
+            <li class="fragment">
+              Todo objeto em JavaScript é um <span class="green">Object</span>
+            </li>
+            <li class="fragment">
+              Todo objeto em JavaScript contém as propriedades e métodos de um <span class="green">prototype</span>
+            </li>
+            <li>
+              A mudança de um <span class="green">prototype</span> afeta todos os objetos relacionados
+              a ele.
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Prototypes</h2>
+          <p>Vamos para um Exemplo:</p>
+          <pre class="javascript"><code data-trim data-noescape>
+          function Pessoa(nome, idade){
+            this.nome = nome;
+            this.idade = idade;
+            return this;
+          }
+          var p1 = new Pessoa("P1", 18);
+
+          //Vamos adicionar um atributo no prototype de Pessoa
+          console.log(p1.nacionalidade); //Não imprime nada
+
+          Pessoa.prototype.nacionalidade = "Brasileiro";
+
+          var p2 = new Pessoa("P2", 18);
+
+          // as duas pessoas são Brasileiras
+          console.log(p1.nacionalidade); 
+          console.log(p2.nacionalidade);
+
+          </code></pre>
+        </section>
+
+<section>
+          <h2>Prototypes</h2>
+          <p>Mais um exemplo</p>
+          <pre class="javascript"><code data-trim data-noescape>
+          function Pessoa(nome, idade){
+            this.nome = nome;
+            this.idade = idade;
+            return this;
+          }
+          var p1 = new Pessoa("P1", 18);
+          var p2 = new Pessoa("P2", 18);
+
+          Pessoa.prototype.digaOi = function(){
+              console.log("Olá " + this.nome);
+          }
+
+          p1.digaOi();
+          p2.digaOi();
+
+          </code></pre>
+        </section>
+
+        <section>
+          <h2></h2>
+          <p>A função Object.call</p>
+          <ul>
+            <li>Utilizamos <span class="green">Object.call</span> para 
+              herdar o código de uma função construtora.
+            </li>
+          </ul>
+          <pre class="javascript"><code data-trim data-noescape>
+              function Pessoa(nome, idade){
+                  this.nome = nome;
+                  this.idade = idade;
+
+                  this.digaOi = function(){
+                      console.log("Olá " + this.nome);
+                  }
+
+              }
+
+              function Aluno(nome, idade){
+                  //A linha abaixo chama a função Pessoa passando como
+                  // "this" o objeto que estamos construindo
+                  Pessoa.call(this,nome, idade);
+                  this.nota = 10;
+              }
+
+            var p1 = new Pessoa("Antônio", 20);
+            var p2 = new Pessoa("Pedro", 18);
+            p1.digaOi();
+            p2.digaOi();
+
+
+          </code></pre>
+        </section>
+
+
+        <section>
+          <h2></h2>
+          <p>Agora sim: juntando tudo para fazer herança</p>
+          <ul>
+            <li>Quando queremos fazer herança, temos que fazer 2 coisas:
+                <ul>
+                  <li class="fragment">Dentro do construtor da classe filha, chamados o construtor da classe pai</li> 
+                  <li class="fragment">Clonamos o protótipo da classe pai para a classe filha</li> 
+                </ul>
+            </li>
+          </ul>
+          <pre class="fragment javascript"><code data-trim data-noescape>
+function Funcionario(nome, salario){
+    this.nome = nome;
+    this.salario = salario;
+
+    this.getSalario = function(){
+        return this.salario;
+    }
+
+    return this;
+}
+
+
+function Vendedor(nome, salario){
+    //Chamando construtor da class Pai
+    Funcionario.call(this, nome, salario);
+    this.totalVendas = 0;
+
+    this.novaVenda = function(valor){
+        this.totalVendas += valor;
+    }
+}
+//Clonando prototype da class pai
+Vendedor.prototype = Object.create(Funcionario.prototype);
+
+
+
+
+function VendedorComissionado(nome, salarioFixo, comissao){
+    //Chamando construtor da class Pai
+    Vendedor.call(this, nome, salarioFixo);
+    this.comissao = comissao;
+
+    this.getSalario = function(){
+        return this.salario + this.comissao*this.totalVendas;
+    }
+}
+//Clonando prototype da class pai
+VendedorComissionado.prototype = Object.create(Vendedor.prototype);
+
+
+//Testando
+var f1 = new Funcionario("Margarete", 3420.00);
+var f2 = new Vendedor("Leandro", 3500.00);
+var f3 = new VendedorComissionado("Kelly", 3500.00, 1.25);
+
+console.log(f1.getSalario());
+console.log(f2.getSalario());
+console.log(f3.getSalario());
+
+
+f2.novaVenda(1000);
+f3.novaVenda(1000);
+
+
+console.log(f2.getSalario());
+console.log(f3.getSalario());
+
+
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Exercício</h2>
+          <ul>
+            <li>Crie uma página utilizando HTML e Javascript que permita 
+            o cadastro de 3 tipos de figuras geométricas: quadrado, círculo e triângulo. 
+            Toda vez que uma nova figura for cadastrada, você deverá calcular
+            a soma de todas as áreas dessas figuras, seguindo as equações: 
+              <ul>
+                <li>Quadrado: $base . altura$</li>
+                <li>Círculo: $pi.r^2$</li>
+                <li>Triângulo: $\frac{base . altura}{2}$</li>
+              </ul>
+              Cada figura geométrica deverá ter um nome associado e uma lista dessas 
+              figuras deve ser exibida sempre.
+              Um exemplo dessa funcionalidade pode ser visto no próximo slide.
+            </li>
+          </ul>
+        </section>
+
+
+
+
+        <section>
+          <h2>Sites Interessantes para Treinar:</h2>
+          <a href="http://jsfiddle.net">JsFiddle</a>
+          <a href="http://pythontutor.com/live.html">Python Tutor (versão Javascript)</a>
+        </section>
+
+      </div>
+    </div>
+
+    <script src="../../lib/js/head.min.js"></script>
+    <script src="../../js/reveal.js"></script>
+
+
+    <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        fragmentInURL: true,
+        controls: true,
+        progress: true,
+        history: true,
+        center: false,
+        height: 1024,
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+        math: {
+          mathjax: 'https://cdn.mathjax.org/mathjax/latest/MathJax.js',
+          config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
+        },
+
+        // Optional reveal.js plugins
+        dependencies: [
+          {
+            src: '../../lib/js/classList.js', condition: function () {
+              return !document.body.classList;
+            }
+          },
+          {
+            src: '../../plugin/markdown/marked.js', condition: function () {
+              return !!document.querySelector('[data-markdown]');
+            }
+          },
+          {
+            src: '../../plugin/markdown/markdown.js', condition: function () {
+              return !!document.querySelector('[data-markdown]');
+            }
+          },
+          {
+            src: '../../plugin/highlight/highlight.js', async: true, callback: function () {
+              hljs.initHighlightingOnLoad();
+            }
+          },
+          {src: '../../plugin/zoom-js/zoom.js', async: true},
+          {src: '../../plugin/notes/notes.js', async: true},
+          {src: '../../plugin/math/math.js', async: true}
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>
