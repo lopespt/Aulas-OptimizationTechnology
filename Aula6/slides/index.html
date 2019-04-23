@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Optimization Technology</title>
+
+    <meta name="description" content="Aula de Desenvolvimento WEB - CC1620">
+    <meta name="author" content="Guilherme A. W. Lopes">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="../../css/reveal.css">
+    <link rel="stylesheet" href="../../gwl_styles.css">
+    <link rel="stylesheet" href="../../css/theme/black.css">
+
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="../../lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement('link');
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match(/print-pdf/gi) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+
+    <!--[if lt IE 9]>
+      <script src="../../lib/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <style>
+body {
+  /*background-color: #201825;*/
+}
+        fieldset{
+          background-color: 1px solid #777;
+        }
+
+        .reveal .intro a {
+          color: #ecff1a;
+        }
+
+        pre {
+          color: #E9DC51;
+        }
+        /*
+           ul li:nth-child(1) {
+             color: dodgerblue;
+           }
+
+           ul li:nth-child(2) {
+             color: yellowgreen;
+           }
+
+           ul li:nth-child(3) {
+             color: orangered;
+           }
+
+           ul li:nth-child(4) {
+             color: goldenrod;
+           }
+
+           ul li > ul li {
+             color: white;
+           }
+         */
+        .reveal .clickTest, .reveal .clickTest:hover {
+          cursor: pointer;
+          background-color: ButtonFace;
+          border: 2px solid ButtonShadow;
+          color: ButtonText;
+          border-radius: 4px;
+          padding: 0 10px;
+          /*box-shadow: ButtonShadow 2px -2px;*/
+          font-size: 20px;
+          transition: all 500ms;
+        }
+
+        .reveal .clickTest:hover {
+          background-color: ButtonHighlight;
+          transition: all 500ms;
+        }
+
+        .reveal .alert {
+          background-color: gold;
+          width: 40%;
+          display: inline-block;
+          position: absolute;
+          left: 50%;
+          margin-left: -20%;
+          top: 50%;
+          color: black;
+          box-shadow: darkgoldenrod 3px 3px 1px;
+          border-radius: 3px;
+        }
+
+        .reveal .ref_estudo > li a {
+          color: greenyellow;
+        }
+
+        .reveal .ref_estudo > li a:hover {
+          color: darkgreen;
+        }
+
+
+    </style>
+
+  </head>
+
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+        <section data-background-video="assets/fundo.webm" class="intro" data-background-video-loop
+                                                           data-background-color="#201825">
+          <h2>Optimization Technology </h2>
+          <small>Prof. Dr. Guilherme Wachs Lopes </small>
+          <br>
+          <small><a href="mailto:guilhermewachs@gmail.com?subject=Duvida de Aluno FIAP">guilhermewachs@gmail.com</a></small>
+        </section>
+
+
+        <section>
+          <h2>Webpack</h2>
+          <img src="assets/webpack.png" alt=""/><br/>
+          <a href="https://webpack.js.org" target="_blank">Webpack Website</a>
+        </section>
+
+        <section>
+          <h3>Webpack</h3>
+          <ul>
+            <li>É um programa que junta vários arquivos js em um só</li>
+            <li>Permite que seu código fique dividido em diferentes arquivos para manter a organização</li>
+            <li>Sem ele, não seria possível "importar" arquivos JavaScript</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Webpack</h2>
+          <ul>
+            <li class="fragment">O webpack pode ser instalado dentro de um projeto ou em sua máquina</li>
+            <li class="fragment">Instalação dentro de um projeto:<br/>
+Dentro da pasta de seu projeto, digite:
+  <pre class="shell"><code data-trim data-noescape>
+  $: npm install webpack webpack-cli
+  </code></pre>
+            </li>
+            <li class="fragment">
+              Instalação na máquina (global):
+              <pre class="shell"><code data-trim data-noescape>
+              $: npm install webpack webpack-cli -g
+              </code></pre>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Webpack</h2>
+          <ul>
+            <li class="fragment">
+                Para o webpack funcionar, precisamos criar o arquivo <span class="green">webpack.config.js</span> na raiz do projeto:
+<pre class="js"><code data-trim data-noescape>
+module.exports = {
+    mode: "development",
+    output:{
+        filename: "dist.js"
+    },
+    entry: "./main.js"
+}
+</code></pre>
+            </li>
+            <li class="fragment">mode: afeta o tamanho do arquivo final
+              <ul>
+                <li class="fragment">Pode ser <span class="green">development</span>; ou </li>
+                <li class="fragment"><span class="green">production</span> </li>
+              </ul>
+            </li>
+            <li class="fragment">filename: nome do arquivo de saída </li>
+            <li class="fragment">entry: nome do arquivo principal</li>
+          </ul>
+        </section>
+
+        <section>
+            <h2>Gerando o arquivo de saída</h2>
+            No terminal, dentro do seu projeto, digite:
+            <pre class="shell"><code data-trim data-noescape>
+            $: .\node_modules\.bin\webpack
+            </code></pre>
+            Observe que o arquivo gerado está na pasta <span class="green">dist</span>
+        </section>
+
+        <section>
+          <h2>Exercício</h2>
+          Crie um projeto "do zero" contendo um arquivo principal js chamado <i>principal.js</i> e 
+          instale e configure o webpack para gerar o arquivo de saída chamado <i>saida.js</i>
+          Para testar o arquivo de saída, crie uma página html contendo um tag <i>script</i>:
+          <pre class="html"><code data-trim data-noescape>
+            &lt;script src="dist/saida.js" &gt; &lt;/script&gt;
+          </code></pre>
+
+          conteúdo do arquivo <i>principal.js</i>:
+          <pre class="js"><code data-trim data-noescape>
+          alert("teste do do arquivo principal");
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Importando arquivos JavaScript</h2>
+          <ul>
+            <li>Existem 2 formas de importar arquivos:
+              <ul>
+                <li>notação <i>common.js (mais antiga)</i>
+                  <pre class="js"><code data-trim data-noescape>
+var codigoImportado = require("nome_arquivo_para_importar.js");
+
+/* codigoImportado contém todos os objetos que
+foram exportados do arquivo nome_arquivo_para_importar.js */
+                  </code></pre>
+                </li>
+                <li>notação <i>ES6</i>
+                  <pre class="js"><code data-trim data-noescape>
+import codigoImportado from 'nome_arquivo_para_importar.js'
+
+/* codigoImportado contém todos os objetos que
+foram exportados do arquivo nome_arquivo_para_importar.js */
+                  </code></pre>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Exportando códigos JavaScript</h2>
+          <ul>
+            <li>Existem 2 formas de exportar códigos JavaScript:
+              <ul>
+                <li>notação <i>common.js (mais antiga)</i>
+                  <pre class="js"><code data-trim data-noescape>
+var objeto_exportado = {
+  funcao: function(){
+    alert("teste");
+  }
+};
+module.exports = objeto_exportado;
+
+/* module.exports contém o objeto a ser exportado */
+                  </code></pre>
+                </li>
+                <li>notação <i>ES6</i>
+                  <pre class="js"><code data-trim data-noescape>
+var objeto_exportado = {
+  funcao: function(){
+    alert("teste");
+  }
+};
+export default objeto_exportado; 
+
+/* export default instrui o webpack a exportar objeto_exportado */
+                  </code></pre>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Exemplo Completo (notação Common.js)</h2>
+          <h3>Arquivo carro.js</h3>
+          <pre class="javascript"><code data-trim data-noescape>
+          function Carro(placa){
+            this.placa = placa;
+            this.ligar = function(){
+              console.log("Ligando carro de placa " + this.placa);
+            }
+            this.desligar = function(){
+              console.log("Desligando carro de placa " + this.placa);
+            }
+          }
+
+          module.exports = Carro;
+          </code></pre>
+          <h3>Arquivo main.js</h3>
+          <pre class="javascript"><code data-trim data-noescape>
+          var Carro = require("./carro.js");         
+
+          var carro1 = new Carro("abc-1234");
+          var carro2 = new Carro("xyz-1234");
+
+          carro1.ligar();
+          carro2.ligar();
+          </code></pre>
+        </section>
+
+
+        <section>
+          <h3>Utilizando ES6 com Webpack</h3>
+          O ES6/7 é a nova versão do JavaScript, que suporta classes
+          e herança com uso de palavras chaves especiais (class, extends).
+          Para utilizar o ES6, precisamos utilizar um plugin para o WebPack
+          que consegue interpretar o ES6 e traspilar o código-fonte para ES5 
+          (utilizado nos navegadores).
+        </section>
+
+        <section>
+          <h3>Utilizando ES6 com Webpack</h3>
+          <ul>
+            <li>Rodar os seguintes comandos na pasta do projeto:
+            <pre class="shell"><code data-trim data-noescape>
+$ npm install babel-loader @babel/core @babel/preset-env
+            </code></pre>
+            </li>
+            <li>webpack.config.js
+<pre class="js"><code data-trim data-noescape>
+module.exports = {
+    mode: "development",
+    output:{
+        filename: "main.js"
+    },
+    entry: "./main.js",
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env']
+                    }
+                }
+            }
+        ]
+    }
+}
+</code></pre>
+            </li>
+            <li>Essa configuração poderá ser encontrada em:
+<a href="https://github.com/babel/babel-loader" target="_blank">https://github.com/babel/babel-loader</a>
+            </li>
+          </ul>
+        </section>
+
+
+        <section>
+          <h2>Exemplo Completo (notação ES6)</h2>
+          <h3>Arquivo carro.js</h3>
+          <pre class="javascript"><code data-trim data-noescape>
+          function Carro(placa){
+            this.placa = placa;
+            this.ligar = function(){
+              console.log("Ligando carro de placa " + this.placa);
+            }
+            this.desligar = function(){
+              console.log("Desligando carro de placa " + this.placa);
+            }
+          }
+
+          export default Carro;
+          </code></pre>
+          <h3>Arquivo main.js</h3>
+          <pre class="javascript"><code data-trim data-noescape>
+          import Carro from './carro.js';
+
+          var carro1 = new Carro("abc-1234");
+          var carro2 = new Carro("xyz-1234");
+
+          carro1.ligar();
+          carro2.ligar();
+          </code></pre>
+        </section>
+
+      </div>
+    </div>
+
+    
+
+    <script src="../../lib/js/head.min.js"></script>
+    <script src="../../js/reveal.js"></script>
+
+
+    <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        fragmentInURL: true,
+        controls: true,
+        progress: true,
+        history: true,
+        center: false,
+        height: 1024,
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+        math: {
+          mathjax: 'https://cdn.mathjax.org/mathjax/latest/MathJax.js',
+          config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
+        },
+
+        // Optional reveal.js plugins
+        dependencies: [
+          {
+            src: '../../lib/js/classList.js', condition: function () {
+              return !document.body.classList;
+            }
+          },
+          {
+            src: '../../plugin/markdown/marked.js', condition: function () {
+              return !!document.querySelector('[data-markdown]');
+            }
+          },
+          {
+            src: '../../plugin/markdown/markdown.js', condition: function () {
+              return !!document.querySelector('[data-markdown]');
+            }
+          },
+          {
+            src: '../../plugin/highlight/highlight.js', async: true, callback: function () {
+              hljs.initHighlightingOnLoad();
+            }
+          },
+          {src: '../../plugin/zoom-js/zoom.js', async: true},
+          {src: '../../plugin/notes/notes.js', async: true},
+          {src: '../../plugin/math/math.js', async: true}
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>
