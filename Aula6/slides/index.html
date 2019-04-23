@@ -215,32 +215,6 @@ module.exports = {
         </section>
 
         <section>
-          <h2>Importando arquivos JavaScript</h2>
-          <ul>
-            <li>Existem 2 formas de importar arquivos:
-              <ul>
-                <li>notação <i>common.js (mais antiga)</i>
-                  <pre class="js"><code data-trim data-noescape>
-var codigoImportado = require("nome_arquivo_para_importar.js");
-
-/* codigoImportado contém todos os objetos que
-foram exportados do arquivo nome_arquivo_para_importar.js */
-                  </code></pre>
-                </li>
-                <li>notação <i>ES6</i>
-                  <pre class="js"><code data-trim data-noescape>
-import codigoImportado from 'nome_arquivo_para_importar.js'
-
-/* codigoImportado contém todos os objetos que
-foram exportados do arquivo nome_arquivo_para_importar.js */
-                  </code></pre>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </section>
-
-        <section>
           <h2>Exportando códigos JavaScript</h2>
           <ul>
             <li>Existem 2 formas de exportar códigos JavaScript:
@@ -257,7 +231,7 @@ module.exports = objeto_exportado;
 /* module.exports contém o objeto a ser exportado */
                   </code></pre>
                 </li>
-                <li>notação <i>ES6</i>
+                <li>notação <i>ES6</i> (é necessário configurar o WebPack)
                   <pre class="js"><code data-trim data-noescape>
 var objeto_exportado = {
   funcao: function(){
@@ -273,6 +247,38 @@ export default objeto_exportado;
             </li>
           </ul>
         </section>
+
+
+        <section>
+          <h2>Importando arquivos JavaScript</h2>
+          <ul>
+            <li>Existem 2 formas de importar arquivos:
+              <ul>
+                <li>notação <i>common.js (mais antiga)</i>
+                  <pre class="js"><code data-trim data-noescape>
+var codigoImportado = require("nome_arquivo_para_importar.js");
+codigoImportado.funcao();
+
+/* codigoImportado contém todos os objetos que
+foram exportados do arquivo nome_arquivo_para_importar.js */
+                  </code></pre>
+                </li>
+                <li>notação <i>ES6</i> (é necessário configurar o WebPack)
+                  <pre class="js"><code data-trim data-noescape>
+import codigoImportado from 'nome_arquivo_para_importar.js'
+
+codigoImportado.funcao();
+
+/* codigoImportado contém todos os objetos que
+foram exportados do arquivo nome_arquivo_para_importar.js */
+                  </code></pre>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+
+
         <section>
           <h2>Exemplo Completo (notação Common.js)</h2>
           <h3>Arquivo carro.js</h3>
