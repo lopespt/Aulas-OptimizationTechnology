@@ -390,6 +390,178 @@ module.exports = {
           Utilizando o somente Javascript ES6, crie o mesmo jogo elaborado na <a href="https://lopespt.github.io/Aulas-FrontEndIntelligence/Aula7/slides/#/2" target="_blank">Aula 7 de FrontEnd Intelligence</a>
         </section>
 
+
+        <section>
+          <h2>ES6 (EcmaScript 6)</h2>
+          <ul>
+            <li>É a nova versão do JavaScript</li>
+            <li>Na verdade, já existem as versões 7 e 8!</li>
+            <li>Também conhecido por ES2015</li>
+            <li>Construída para criar aplicações mais complexas</li>
+          </ul>
+        </section>
+
+
+      <section>
+          <h2>ES6 (EcmaScript 6)</h2>
+          <h3>Diferenças</h3>
+          <ul>
+          <li>let: semelhante ao var só que respeita o escopo em que foi declarado</li>
+          <li>const: declaração de constantes</li>
+          <li>parâmetros default:
+<pre class="javascript"><code data-trim data-noescape>
+function soma(x=0, y=2){
+    return x+y;
+}
+//exemplo de chamada:
+soma();  //invoca a função com x=0 e y=2 (default)
+</code></pre>
+          </li>
+          </ul>
+      </section>
+
+<section>
+          <h2>ES6 (EcmaScript 6)</h2>
+          <h3>Diferenças</h3>
+          <ul>
+            <li>arrow funcions
+<pre class="javascript"><code data-trim data-noescape>
+let soma = (x,y) => {
+  return x+y;
+};
+
+soma(5,7);
+</code></pre>
+
+            </li>
+          <li>parametros <i>rest</i>
+<pre class="javascript"><code data-trim data-noescape>
+function soma(...numeros) {
+  let contagem = 0
+  numbers.forEach( (numero) => {
+     contagem += numero;
+  });
+  return contagem;
+}
+</code></pre>
+          </li>
+          </ul>
+</section>
+<section>
+          <h2>ES6 (EcmaScript 6)</h2>
+          <h3>Diferenças</h3>
+          <ul>
+          <li>destructuring
+<pre class="javascript"><code data-trim data-noescape>
+
+let [a,b] = [1,3];
+
+// a = 1 e b = 3;
+
+let [a, ...resto] = [1,2,3,4,5];
+// a = 1 e resto = [2,3,4,5];
+</code></pre>
+          </li>
+          </ul>
+      </section>
+
+      <section>
+        <h2>Orientação a Objetos</h2>
+        <h3>Classes</h3>
+<pre class="javascript"><code data-trim data-noescape>
+   class Computador{
+      constructor(marca, modelo){
+        this.marca = marca;
+        this.modelo = modelo;
+      }
+
+      setMarca(marca){
+        this.marca = marca;
+      }
+
+      getMarca(){
+        return this.marca;
+      }
+
+   }
+
+
+   const comp1 = new Computador("xyz", "1324");
+   comp1.setMarca("zyx");
+   alert(comp1.getMarca());
+</code></pre>
+  
+      </section>
+<section>
+        <h2>Orientação a Objetos</h2>
+        <h3>Getters e Setters</h3>
+<pre class="javascript"><code data-trim data-noescape>
+   class Computador{
+      constructor(marca, modelo){
+        this._marca = marca;
+        this._modelo = modelo;
+      }
+
+      set marca(marca){
+        this._marca = marca;
+      }
+
+      get marca(){
+        return this._marca;
+      }
+
+   }
+
+
+   const comp1 = new Computador("xyz", "1324");
+   comp1.marca = "zyx";
+   alert(comp1.marca);
+</code></pre>
+  
+      </section>
+<section>
+        <h2>Orientação a Objetos</h2>
+        <h3>Herança</h3>
+<pre class="javascript"><code data-trim data-noescape>
+   class Computador{
+      constructor(marca, modelo){
+        this._marca = marca;
+        this._modelo = modelo;
+      }
+
+      set marca(marca){
+        this._marca = marca;
+      }
+
+      get marca(){
+        return this._marca;
+      }
+
+   }
+
+  class Notebook extends Computador{
+     constructor(marca,modelo, bateria){
+        super(marca, modelo);
+        this.bateria = bateria;
+     }
+  }
+
+</code></pre>
+      </section>
+
+      <section>
+        <h2>Exercício</h2>
+        Crie uma calculadora utilizando ES6 (você deverá configurar o Webpack). Sua calculadora deverá suportar as 4 operações e deverá ser semelhante a figura abaixo:
+        <br/>
+        <img src="assets/calculadora.png" height="400" alt=""/>
+        <ul>
+          <li>Aproveita para utilizar todas as funcionalidades do ES6!</li>
+          <li>Use Orientação a Objetos</li>
+
+        </ul>
+
+      </section>
+
       </div>
     </div>
 
