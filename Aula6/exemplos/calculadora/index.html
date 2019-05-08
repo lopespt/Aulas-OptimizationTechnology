@@ -1,31 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Calculadora</title>
-  <style type="text/css" media="screen">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculadora</title>
+    <style type="text/css" media="screen">
 input[type='button']{
   width: 80px;
   height: 80px;
   font-size: 50px;
   color: #444;
+  margin: 0;
+  padding: 0;
 }
 input[type='text']{
   width: 320px;
   height: 80px;
   font-size: 50px;
-    text-align: right;
+  text-align: right;
 }
-table{
-  border-spacing: 0;
-}
-</style>
-</head>
-<body>
 
-  <div>
+table, tr td, tr{
+  border-spacing: 0;
+  margin: 0;
+  padding: 0;
+}
+
+#btnAc{
+  width: 320px;
+}
+    </style>
+  </head>
+  <body>
+
+    <div>
       <input type="text" value="" name="" id="txtNumero" enabled=false/>
       <table>
         <tr>
@@ -52,12 +61,16 @@ table{
           <td><input type="button" value="=" id="btnIgual"></td>
           <td><input type="button" value="/" id="btnDivide"></td>
         </tr>
+        <tr>
+          <td colspan="4">
+            <input type="button" value="AC" id="btnAc"></td>
+        </tr>
       </table>
 
-  </div>
-  <script src="dist/saida.js" text/javascript" charset="utf-8">
-    
-  </script>
-  
-</body>
+    </div>
+    <script src="dist/saida.js" text/javascript" charset="utf-8">
+
+    </script>
+
+  </body>
 </html>

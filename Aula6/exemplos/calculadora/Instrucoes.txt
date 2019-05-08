@@ -1,0 +1,33 @@
+Para rodar a calculadora, basta abrir o arquivo index.html.
+
+
+Caso queria alterar o código, você precisa instalar as dependências 
+de desenvolvimento (webpack e babel). Já temos todas as dependências
+no arquivo package.json. Assim, basta rodar na pasta do projeto:
+
+npm install
+
+
+Após isso, altere o código e não esqueça de transpilar o ES6 para o 
+ES5 (JS tradicional):
+
+.\node_modules\.bin\webpack (windows)
+./node_modules/.bin/webpack (linux)
+
+Caso você já tenha instalado na máquina, é só rodar:
+
+webpack
+
+
+Pronto...O arquivo "dist/saida.js" já será gerado.
+
+Dúvidas no código não deixem de me perguntar!! Participação é muito importante!
+
+Tente adicionar botões extras:
+raiz
+raiz cúbica
+potência
+log
+etc....
+
+
